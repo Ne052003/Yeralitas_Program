@@ -1,18 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Vista;
 
-import Modelo.Login;
+package Vista;
 import Controlador.Gerente_Control;
 import java.awt.Image;
 import java.awt.Toolkit;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class AgregarGeren_JFrame extends javax.swing.JFrame {
 
@@ -27,6 +22,7 @@ public class AgregarGeren_JFrame extends javax.swing.JFrame {
         btn_guardar.addActionListener(gerenControl);
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;
@@ -383,36 +379,36 @@ public class AgregarGeren_JFrame extends javax.swing.JFrame {
         String seleccionado= combox_registros.getSelectedItem().toString();
         switch(seleccionado){
             
-            case "Registro de empleados":
-            Metodos_generales.AgregarEmpl();
-            this.dispose();
-            break;
-            case "Registro de clientes":
-            Metodos_generales.AgregarCli();
-            this.dispose();
-            break;
-            case "Registro de productos":
-            Metodos_generales.AgregarPro();
-            this.dispose();
-            break;
-            case "Registro de observaciones":
-            Metodos_generales.AgregarObs();
-            this.dispose();
-            break;
-            case "Registro de ventas":
-            Metodos_generales.AgregarVenta();
-            this.dispose();
-            break;
-            case "Registro de manufacturas":
-            AgregarManu_JFrame manu=new AgregarManu_JFrame();
-            manu.show();
-            this.dispose();
-            break;
-            case "Registro de areas":
-            AgregarArea_JFrame area= new AgregarArea_JFrame();
-            area.show();
-            this.dispose();
-            break;
+            case "Registro de empleados" -> {
+                Metodos_generales.AgregarEmpl();
+                this.dispose();
+            }
+            case "Registro de clientes" -> {
+                Metodos_generales.AgregarCli();
+                this.dispose();
+            }
+            case "Registro de productos" -> {
+                Metodos_generales.AgregarPro();
+                this.dispose();
+            }
+            case "Registro de observaciones" -> {
+                Metodos_generales.AgregarObs();
+                this.dispose();
+            }
+            case "Registro de ventas" -> {
+                Metodos_generales.AgregarVenta();
+                this.dispose();
+            }
+            case "Registro de manufacturas" -> {
+                AgregarManu_JFrame manu=new AgregarManu_JFrame();
+                manu.show();
+                this.dispose();
+            }
+            case "Registro de areas" -> {
+                AgregarArea_JFrame area= new AgregarArea_JFrame();
+                area.show();
+                this.dispose();
+            }
             
         }
     }//GEN-LAST:event_combox_registrosActionPerformed

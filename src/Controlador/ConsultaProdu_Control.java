@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Modelo.*;
 import Vista.*;
@@ -40,7 +37,7 @@ public class ConsultaProdu_Control implements ActionListener {
             atributo=4;
         }
         //Se crea el linkedList con los productos que cumplen la consulta
-        LinkedList<Producto> productos= gestorProducto.Consultar_Producto(atributo, dato);
+        LinkedList<Producto> productos= Gestor_Producto.Consultar_Producto(atributo, dato);
         //LinkedList<Observacion> observaciones= new LinkedList<Observacion>();
         
         String registro[]= new String[7];

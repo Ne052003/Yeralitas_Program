@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Modelo.*;
 import Vista.*;
@@ -39,7 +36,7 @@ public class ConsultaVenta_Control implements ActionListener{
              atributo=5;
          }
          
-         LinkedList<Venta> ventas= gestorVenta.Consultar_Venta(atributo, dato);
+         LinkedList<Venta> ventas= Gestor_Venta.Consultar_Venta(atributo, dato);
          
          String registro[]= new String[7];
          String titulos[]={"ID", "ID Empleado", "ID Cliente", "ID Manufactura", "Cantidad de manufacturas","Fecha", "Precio"};

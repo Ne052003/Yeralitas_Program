@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Recursos;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Conexion{
@@ -29,7 +27,7 @@ public class Conexion{
         try{
             Class.forName(driver).newInstance(); 
             conexion = DriverManager.getConnection(url,usr,pass);
-        }catch(Exception e){    
+        }catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){    
             JOptionPane.showMessageDialog(null,"Error al intentar conectarse a la base de datos" + e.toString());
         }
     }
@@ -64,7 +62,7 @@ public class Conexion{
     public Connection desconectarDB(){
         try{
            conexion.close(); 
-        }catch(Exception e){
+        }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "No fue posible finalizar la conexión"+e);
         }
         

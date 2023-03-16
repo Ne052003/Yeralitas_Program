@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import java.awt.Image;
@@ -10,7 +7,7 @@ import java.awt.Toolkit;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class ConfigDatosGer_JFrame extends javax.swing.JFrame {
     
@@ -26,6 +23,7 @@ public class ConfigDatosGer_JFrame extends javax.swing.JFrame {
         txt_fech.setText(Login.getFechNac());
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;

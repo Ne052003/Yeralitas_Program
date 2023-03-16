@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
 import Modelo.*;
@@ -14,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class Eliminar_Control implements ActionListener {
     
@@ -45,47 +42,47 @@ public class Eliminar_Control implements ActionListener {
         
         switch(tabla){
             
-            case "Cliente":
+            case "Cliente" -> {
                 LinkedList<Cliente>clientes= gestorEliminar.consultar_Registro_Eliminar(Dato, tabla);
                 for(Cliente cli:clientes){
-                registro [0]=cli.getId_cli()+"";
-                registro [1]=cli.getNom_cli();
-                tmodelo.addRow(registro);
+                    registro [0]=cli.getId_cli()+"";
+                    registro [1]=cli.getNom_cli();
+                    tmodelo.addRow(registro);
                 }
-            break;
-            case "Producto":
+                }
+            case "Producto" -> {
                 LinkedList<Producto> productos= gestorEliminar.consultar_Registro_Eliminar(Dato, tabla);
                 for(Producto produ:productos){
-                registro [0]=produ.getId_produ()+"";
-                registro [1]=produ.getNom_produ();
-                tmodelo.addRow(registro);
+                    registro [0]=produ.getId_produ()+"";
+                    registro [1]=produ.getNom_produ();
+                    tmodelo.addRow(registro);
                 }
-            break;
-            case "Venta":
+                }
+            case "Venta" -> {
                 LinkedList<Venta> ventas= gestorEliminar.consultar_Registro_Eliminar(Dato, tabla);
                 for(Venta vent:ventas){
-                registro [0]=vent.getId_venta()+"";
-                registro [1]=vent.getId_manufac()+"";
-                tmodelo.addRow(registro);
+                    registro [0]=vent.getId_venta()+"";
+                    registro [1]=vent.getId_manufac()+"";
+                    tmodelo.addRow(registro);
                 }
-            break;
-            case "Empleado":
+                }
+            case "Empleado" -> {
                 LinkedList<Empleado> empleados= gestorEliminar.consultar_Registro_Eliminar(Dato, tabla);
                 for(Empleado empl:empleados){
-                registro [0]=empl.getId_empleado()+"";
-                registro [1]=empl.getNom_empl();
-                tmodelo.addRow(registro);
+                    registro [0]=empl.getId_empleado()+"";
+                    registro [1]=empl.getNom_empl();
+                    tmodelo.addRow(registro);
                 }
-            break;
+                }
             
-            case "Observación":
+            case "Observación" -> {
                 LinkedList<Observacion> observaciones= gestorEliminar.consultar_Registro_Eliminar(Dato, tabla);
                 for(Observacion observ:observaciones){
-                registro [0]=observ.getId_observ()+"";
-                registro [1]=observ.getId_produ_2()+"";
-                tmodelo.addRow(registro);
+                    registro [0]=observ.getId_observ()+"";
+                    registro [1]=observ.getId_produ_2()+"";
+                    tmodelo.addRow(registro);
                 }
-            break;
+                }
         }
         
         eliminarVista.table_eliminar.setModel(tmodelo);

@@ -3,12 +3,12 @@ package Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class Herramientas_JFrame extends javax.swing.JFrame {
     
@@ -31,6 +31,7 @@ public class Herramientas_JFrame extends javax.swing.JFrame {
         return herramienta;
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;
@@ -702,22 +703,21 @@ public class Herramientas_JFrame extends javax.swing.JFrame {
     }
     
     private void operacion(String digito){
-        int mas, menos, div, por;
-        mas= lbl_tablero.getText().indexOf("+");
-        menos= lbl_tablero.getText().indexOf("-");
-        por= lbl_tablero.getText().indexOf("*");
-        div= lbl_tablero.getText().indexOf("/");
+        
+        int mas= lbl_tablero.getText().indexOf("+");
+        int menos= lbl_tablero.getText().indexOf("-");
+        int por= lbl_tablero.getText().indexOf("*");
+        int div= lbl_tablero.getText().indexOf("/");
         
         if(mas!=-1 || menos!=-1 || div!=-1 || por!=-1){
             num2=Float.parseFloat(lbl_resultado.getText());
-            if(signo=="+"){
-                resultado=num1+num2;
-            }else if(signo=="-"){
-                resultado=num1-num2;
-            }else if(signo=="*"){
-                resultado=num1*num2;
-            }else if(signo=="/"){
-                resultado=num1/num2;
+            if(null!=signo)switch (signo) {
+                case "+" -> resultado=num1+num2;
+                case "-" -> resultado=num1-num2;
+                case "*" -> resultado=num1*num2;
+                case "/" -> resultado=num1/num2;
+                default -> {
+                }
             }
             
             lbl_mostrar.setText(resultado+"");

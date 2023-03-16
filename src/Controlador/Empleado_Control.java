@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Vista.*;
 import Modelo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 public class Empleado_Control implements ActionListener{
 
@@ -24,6 +20,7 @@ public class Empleado_Control implements ActionListener{
         gestorEmpleado= new Gestor_Empleado();
     }
     
+    @Override
     public void actionPerformed(ActionEvent e){
         if (e.getSource().equals(empleadoVista.btn_guardar)) {
             String id_empleado = empleadoVista.txt_identificacion.getText();
@@ -38,15 +35,21 @@ public class Empleado_Control implements ActionListener{
             empleadoModelo = new Empleado(id_empleado, id_gerente, nom_empl, ape_empl, num_empl, fech_ingreso_empl, area_empl, fech_nac_empl);
             gestorEmpleado.Agregar_Empleado(empleadoModelo);
             int msg= gestorEmpleado.getMsg();
-            if(msg==JOptionPane.YES_OPTION){
-                Metodos_generales.AgregarEmpl();
-                empleadoVista.dispose();
-            }else if(msg==JOptionPane.NO_OPTION){
-                Metodos_generales.RolMenu();
-                empleadoVista.dispose();
-            }else if(msg==JOptionPane.CANCEL_OPTION){
-                Metodos_generales.RolMenu();
-                empleadoVista.dispose();
+            switch (msg) {
+                case JOptionPane.YES_OPTION -> {
+                    Metodos_generales.AgregarEmpl();
+                    empleadoVista.dispose();
+                }
+                case JOptionPane.NO_OPTION -> {
+                    Metodos_generales.RolMenu();
+                    empleadoVista.dispose();
+                }
+                case JOptionPane.CANCEL_OPTION -> {
+                    Metodos_generales.RolMenu();
+                    empleadoVista.dispose();
+                }
+                default -> {
+                }
             }
 
         }

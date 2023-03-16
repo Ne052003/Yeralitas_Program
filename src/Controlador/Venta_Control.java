@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Vista.*;
 import Modelo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 public class Venta_Control implements ActionListener{
     
@@ -36,12 +32,12 @@ public class Venta_Control implements ActionListener{
             ventaModelo= new Venta(id_empl, id_cli, id_manufac, cantidad_manufac, fech_venta, prec_venta);
             gestorVenta.Agregar_Venta(ventaModelo);
             int msg=gestorVenta.getMsg();
-            if(msg==JOptionPane.YES_OPTION){
-                Metodos_generales.AgregarVenta();
-            }else if(msg==JOptionPane.NO_OPTION){
-                Metodos_generales.RolMenu();
-            }else if(msg==JOptionPane.CANCEL_OPTION){
-                Metodos_generales.RolMenu();
+            switch (msg) {
+                case JOptionPane.YES_OPTION -> Metodos_generales.AgregarVenta();
+                case JOptionPane.NO_OPTION -> Metodos_generales.RolMenu();
+                case JOptionPane.CANCEL_OPTION -> Metodos_generales.RolMenu();
+                default -> {
+                }
             }
             ventaVista.dispose();
             

@@ -5,7 +5,6 @@ import Modelo.*;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
-import yeralitas_program.Metodos_generales;
 
 public class Cliente_Control implements ActionListener {
     

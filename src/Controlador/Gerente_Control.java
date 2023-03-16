@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Vista.*;
 import Modelo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 public class Gerente_Control implements ActionListener{
     
@@ -43,12 +39,10 @@ public class Gerente_Control implements ActionListener{
                 JOptionPane.showMessageDialog(null, "La confirmación de contraseña es incorrecta");
             }
             int msg=gestorGerente.getMsg();
-            if(msg==JOptionPane.YES_OPTION){
-                Metodos_generales.AgregarVenta();
-            }else if(msg==JOptionPane.NO_OPTION){
-                Metodos_generales.RolMenu();
-            }else if(msg==JOptionPane.CANCEL_OPTION){
-                Metodos_generales.RolMenu();
+            switch (msg) {
+                case JOptionPane.YES_OPTION -> Metodos_generales.AgregarVenta();
+                case JOptionPane.NO_OPTION -> Metodos_generales.RolMenu();
+                case JOptionPane.CANCEL_OPTION -> Metodos_generales.RolMenu();
             }
             gerenteVista.dispose();
         }

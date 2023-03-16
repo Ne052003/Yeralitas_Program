@@ -1,7 +1,5 @@
     
 package Modelo;
-import java.text.SimpleDateFormat;  
-import java.util.Date;
 
 public class Empleado {
     
@@ -31,8 +29,6 @@ public class Empleado {
         this.id_empleado= id_empleado;
         this.nom_empl= nom_empl;
     }
-    
-    
     
     //Se generan los Getters y Setters de los atributos antes declarados
 
@@ -100,10 +96,4 @@ public class Empleado {
         this.fech_nac_empl = fech_nac_empl;
     }
 
-        
-    
-    
-    
-    
-    
 }

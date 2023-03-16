@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Modelo.*;
 import Vista.*;
@@ -36,7 +33,7 @@ public class ConsultaGeren_Control implements ActionListener{
             atributo=3;
         }
         
-        LinkedList<Gerente> gerentes= gestorGerente.Consultar_Gerente(atributo, dato);
+        LinkedList<Gerente> gerentes= Gestor_Gerente.Consultar_Gerente(atributo, dato);
         
         String registro[]= new String[6];
         String titulos[]= {"Identificación", "Nombres", "Apellidos", "Número celular", "Correo electrónico", "Fecha de nacimiento"};

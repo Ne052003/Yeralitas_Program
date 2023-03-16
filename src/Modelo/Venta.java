@@ -1,9 +1,6 @@
 
 package Modelo;
 
-import java.util.Date;
-
-
 public class Venta {
     
     private int id_venta;

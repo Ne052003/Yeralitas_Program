@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 import Modelo.*;
 import Vista.*;
@@ -24,21 +21,21 @@ public class ConsultaEmpl_Controlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         DefaultTableModel tmodelo;
-        String dato= consultarEmpl.txt_dato.getText().toString();
+        String dato= consultarEmpl.txt_dato.getText();
         int atributo=0;
         String filtro=consultarEmpl.combox_filtro.getSelectedItem().toString();
         
-        if(filtro=="Identificación"){
+        if("Identificación".equals(filtro)){
             atributo=1;
-        }if(filtro=="Nombre"){
+        }if("Nombre".equals(filtro)){
             atributo=2;
-        }if(filtro=="Número de celular"){
+        }if("Número de celular".equals(filtro)){
             atributo=3;
-        }if(filtro=="Fecha de ingreso"){
+        }if("Fecha de ingreso".equals(filtro)){
             atributo=4;
         }
         
-        LinkedList<Empleado> empleados= gestor_empl.Consultar_Empleado(atributo, dato);
+        LinkedList<Empleado> empleados= Gestor_Empleado.Consultar_Empleado(atributo, dato);
         
         String registro[]= new String[8];
         String titulos[]={"Identificación", "ID Gerente", "Nombres", "Apellidos", "Celular", "Fecha de ingreso", "Fecha de nacimiento", "Area"};

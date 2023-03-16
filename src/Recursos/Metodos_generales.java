@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Recursos;
 
+import Modelo.Login;
 import Vista.*;
+import javax.swing.JOptionPane;
 
 /**
- *
- * @author NN
+ * @author Neoly Alexis
  */
 public class Metodos_generales extends javax.swing.JFrame{
     
@@ -89,6 +87,12 @@ public class Metodos_generales extends javax.swing.JFrame{
         menu.show();
     }
     
+    //Abrir ventana Menú
+    public static void MenuAdmin(){
+        MenuAdmin_JFrame menu= MenuAdmin_JFrame.getMenu();
+        menu.show();
+    }
+    
     //Abrir ventana modificar cliente
     public static void ModificarCli(){
         ModificarCli_JFrame cliente= new ModificarCli_JFrame();
@@ -119,6 +123,48 @@ public class Metodos_generales extends javax.swing.JFrame{
             venta.show();
     }
     
+    //Método para ir al menú según el rol
+    public static void RolMenu(){
+        String rol=Login.getRol();
+        
+        switch(rol){
+            
+            case "usuarios" -> {
+                MenuEmpl_JFrame menu = MenuEmpl_JFrame.getMenu();
+                menu.show();
+            }
+            case "gerente" -> {
+                MenuGer_JFrame menu1 = MenuGer_JFrame.getMenu();
+                menu1.show();
+            }
+            case "administrador" -> {
+                MenuAdmin_JFrame menu2 = MenuAdmin_JFrame.getMenu();
+                menu2.show();
+            }
+            default -> JOptionPane.showMessageDialog(null,"No hay rol definido");
+        }
+    }
+    
+    public static void RolConfig(){
+        String rol=Login.getRol();
+        
+        switch(rol){
+            
+            case "usuarios" -> {
+                ConfigUser_JFrame menu = new ConfigUser_JFrame();
+                menu.show();
+            }
+            case "gerente" -> {
+                ConfigGeren_JFrame menu1 = new ConfigGeren_JFrame();
+                menu1.show();
+            }
+            case "administrador" -> {
+                ConfigAdmin_JFrame menu2 = new ConfigAdmin_JFrame();
+                menu2.show();
+            }
+            default -> JOptionPane.showMessageDialog(null,"No hay rol definido");
+        }
+    }
     
     
     

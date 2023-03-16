@@ -4,7 +4,7 @@
  */
 package Modelo;
 import Recursos.Conexion;
-import yeralitas_program.Metodos_generales;
+import java.awt.HeadlessException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,7 +55,7 @@ public class Login{
                 rol = "gerente";
                 String contrasena = rs1.getString("contraseña");
                 apellidos = rs1.getString("ape_geren");
-                nombre = rs1.getString("nom_geren");;
+                nombre = rs1.getString("nom_geren");
                 identificacion = id;
                 numero = rs1.getString("num_geren");
                 correo = rs1.getString("correo");
@@ -79,13 +79,14 @@ public class Login{
                 st.close();
                 st1.close();
                 st2.close();
-            }catch(Exception e){
+            }catch(SQLException e){
                 //JOptionPane.showMessageDialog(null, e.getMessage());
                 JOptionPane.showMessageDialog(null, "Error al verificar los datos" + e.getMessage());
             }
         return tipolog;
     }
     
+    //Método para cambiar daos del gerente
     public static void ModificarGeren(String identificacion, String nombre, String apellido, String numero, String correo, String fech){
         String sql="update gerente set id_geren='"+identificacion+"',nom_geren='"+nombre+"',ape_geren='"+apellido+"',num_geren='"+numero+"',correo='"+correo+"',fech_nac_geren='"+fech+"'";
         try{
@@ -99,6 +100,7 @@ public class Login{
         }
     }
     
+    //Método para cambiar datos de usuario
     public static void Modificar(String rol, String identificacion, String nombre,String correo){
         String sql="update "+rol+" set identificacion='"+identificacion+"',nombre='"+nombre+"', correo='"+correo+"'";
         try{
@@ -107,7 +109,7 @@ public class Login{
             JOptionPane.showMessageDialog(null, "Cambio realizado correctamente");
             st.close();
             
-        }catch(Exception e){
+        }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(null, "Error al verificar los datos"+e.getMessage());
         }
     }

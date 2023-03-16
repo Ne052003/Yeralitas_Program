@@ -1,29 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import Modelo.Login;
-import Recursos.Conexion;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.sql.*;
-import java.util.LinkedList;
-import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 import java.awt.Image;
 import java.awt.Toolkit;
 
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class AgregarPro_JFrame extends javax.swing.JFrame {
 
     private Controlador.Producto_Control producto_control;
-    private static Connection conn;
     /**
      * Creates new form Agregar_JFrame
      */
@@ -40,12 +30,11 @@ public class AgregarPro_JFrame extends javax.swing.JFrame {
             combox_registros.addItem("Registro de empleados");
             combox_registros.addItem("Registro de areas");
         }
-        Conexion conexion= new Conexion("localhost","Yeralitas_Database","Neoly","SQLSERVERlexis_22");
-        conn = conexion.getConexion();
         producto_control= new Controlador.Producto_Control(this);
         btn_guardar.addActionListener(producto_control);
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;
@@ -374,37 +363,37 @@ public class AgregarPro_JFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String seleccionado= combox_registros.getSelectedItem().toString();
         switch(seleccionado){
-            case "Registro de empleados":
-            Metodos_generales.AgregarEmpl();
-            this.dispose();
-            break;
-            case "Registro de gerentes":
-            AgregarGeren_JFrame geren= new AgregarGeren_JFrame();
-            geren.show();
-            this.dispose();
-            break;
-            case "Registro de clientes":
-            Metodos_generales.AgregarCli();
-            this.dispose();
-            break;
-            case "Registro de observaciones":
-            Metodos_generales.AgregarObs();
-            this.dispose();
-            break;
-            case "Registro de ventas":
-            Metodos_generales.AgregarVenta();
-            this.dispose();
-            break;
-            case "Registro de manufacturas":
-            AgregarManu_JFrame manu=new AgregarManu_JFrame();
-            manu.show();
-            this.dispose();
-            break;
-            case "Registro de areas":
-            AgregarArea_JFrame area= new AgregarArea_JFrame();
-            area.show();
-            this.dispose();
-            break;
+            case "Registro de empleados" -> {
+                Metodos_generales.AgregarEmpl();
+                this.dispose();
+            }
+            case "Registro de gerentes" -> {
+                AgregarGeren_JFrame geren= new AgregarGeren_JFrame();
+                geren.show();
+                this.dispose();
+            }
+            case "Registro de clientes" -> {
+                Metodos_generales.AgregarCli();
+                this.dispose();
+            }
+            case "Registro de observaciones" -> {
+                Metodos_generales.AgregarObs();
+                this.dispose();
+            }
+            case "Registro de ventas" -> {
+                Metodos_generales.AgregarVenta();
+                this.dispose();
+            }
+            case "Registro de manufacturas" -> {
+                AgregarManu_JFrame manu=new AgregarManu_JFrame();
+                manu.show();
+                this.dispose();
+            }
+            case "Registro de areas" -> {
+                AgregarArea_JFrame area= new AgregarArea_JFrame();
+                area.show();
+                this.dispose();
+            }
             
         }
     }//GEN-LAST:event_combox_registrosActionPerformed
@@ -433,21 +422,7 @@ public class AgregarPro_JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_combox_unidadActionPerformed
 
     private void combox_gerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combox_gerenteActionPerformed
-        // TODO add your handling code here:
-        /*String sql="select top 1 nom_geren from gerente order by Nom_Geren asc";
-        try{
-                
-                Statement st= conn.createStatement();
-                ResultSet rs= st.executeQuery(sql);
-                for(int i=1; rs.next();i++){
-                    sql="select top "+ i+" nom_geren from gerente order by Nom_Geren asc";
-                    combox_gerente.addItem(st.executeQuery(sql)+"");
-                }
-                st.close();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, e.getMessage());
-            }*/
-        
+       
     }//GEN-LAST:event_combox_gerenteActionPerformed
 
 

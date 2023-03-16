@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 
-
-
 public class ConsultaManu_Control implements ActionListener {
     
     ConsultasManu_JFrame manufacturaVista;

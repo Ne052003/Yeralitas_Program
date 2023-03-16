@@ -1,16 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class ModificarVen_JFrame extends javax.swing.JFrame {
 
@@ -336,22 +333,22 @@ public class ModificarVen_JFrame extends javax.swing.JFrame {
         String seleccionado= combox_modificar.getSelectedItem().toString();
         switch(seleccionado){
 
-            case "Modificar - Empleado":
-            Metodos_generales.ModificarEmpl();
-            this.dispose();
-            break;
-            case "Modificar - Cliente":
-            Metodos_generales.ModificarCli();
-            this.dispose();
-            break;
-            case "Modificar - producto":
-            Metodos_generales.ModificarPro();
-            this.dispose();
-            break;
-            case "Modificar - Observación":
-            Metodos_generales.ModificarObs();
-            this.dispose();
-            break;
+            case "Modificar - Empleado" -> {
+                Metodos_generales.ModificarEmpl();
+                this.dispose();
+            }
+            case "Modificar - Cliente" -> {
+                Metodos_generales.ModificarCli();
+                this.dispose();
+            }
+            case "Modificar - producto" -> {
+                Metodos_generales.ModificarPro();
+                this.dispose();
+            }
+            case "Modificar - Observación" -> {
+                Metodos_generales.ModificarObs();
+                this.dispose();
+            }
             
 
         }

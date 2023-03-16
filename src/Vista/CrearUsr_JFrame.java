@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import java.awt.Image;
@@ -9,7 +6,7 @@ import java.awt.Toolkit;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class CrearUsr_JFrame extends javax.swing.JFrame {
 

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
 import Recursos.Conexion;
@@ -16,8 +13,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Gestor_Manufactura {
-    
-    LinkedList<Manufactura> manufacturas;
     private static Connection conn;
     
     public Gestor_Manufactura(){
@@ -41,20 +36,14 @@ public class Gestor_Manufactura {
     
     //Método para consultar 
     public LinkedList<Manufactura> Consultar_Manufactura(int atributo, String dato){
-        LinkedList<Manufactura> resultado= new LinkedList<Manufactura>();
+        LinkedList<Manufactura> resultado= new LinkedList<>();
         String sql="";
         
             switch(atributo){
                 
-                case 1:
-                  sql="select * from manufactura where id_manufac='"+dato+"'";
-                break;
-                case 2:
-                    sql= "select * from manufactura where nom_manufac='"+dato+"'";
-                break;
-                case 3: 
-                    sql= "select * from manufactura where prec_manufac='"+dato+"'";
-                break;
+                case 1 -> sql="select * from manufactura where id_manufac='"+dato+"'";
+                case 2 -> sql= "select * from manufactura where nom_manufac='"+dato+"'";
+                case 3 -> sql= "select * from manufactura where prec_manufac='"+dato+"'";
             }
             
             try{
@@ -64,7 +53,7 @@ public class Gestor_Manufactura {
                     resultado.add(new Manufactura(rs.getInt("id_manufac"), rs.getString("nom_manufac"), rs.getFloat("prec_manufac")));
                 }
                 st.close();
-            }catch(Exception e){
+            }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
         

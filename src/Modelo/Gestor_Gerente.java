@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
 import Recursos.Conexion;
@@ -12,7 +9,6 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Gestor_Gerente {
-     private static LinkedList<Gerente> gerentes;
      private static Connection conn;
      private int msg=0;
      
@@ -47,18 +43,12 @@ public class Gestor_Gerente {
     
     //Método para consultar gerentes
     public static LinkedList<Gerente> Consultar_Gerente(int atributo, String dato){
-        LinkedList<Gerente> resultado= new LinkedList<Gerente>();
+        LinkedList<Gerente> resultado= new LinkedList<>();
         String sql="";
             switch(atributo){
-                case 1:
-                  sql="select * from gerente where id_geren='"+dato+"'";
-                break;
-                case 2:
-                    sql= "select * from geren where nom_geren='"+dato+"'";
-                break;
-                case 3: 
-                    sql= "select * from geren where num_geren='"+dato+"'";
-                break;
+                case 1 -> sql="select * from gerente where id_geren='"+dato+"'";
+                case 2 -> sql= "select * from geren where nom_geren='"+dato+"'";
+                case 3 -> sql= "select * from geren where num_geren='"+dato+"'";
             }
             try{
                 Statement st= conn.createStatement();

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
 import Recursos.Conexion;
@@ -14,11 +11,9 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
 
 public class Gestor_Venta {
     
-     private static LinkedList<Venta> ventas;
      private static Connection conn;
      private int msg=0;
     
@@ -28,7 +23,7 @@ public class Gestor_Venta {
         conn=conexion.getConexion();
     }
     
-    //Método para agregar ventas
+    //Método para agregar venta
     public void Agregar_Venta(Venta venta){
         PreparedStatement ven;
         try {
@@ -53,25 +48,15 @@ public class Gestor_Venta {
     
     //Método para consultar ventas
     public static LinkedList<Venta> Consultar_Venta(int atributo, String dato){
-        LinkedList<Venta> resultado= new LinkedList<Venta>();
+        LinkedList<Venta> resultado= new LinkedList<>();
         String sql="";
             switch(atributo){
                 
-                case 1:
-                  sql="select * from venta where id_manufac='"+dato+"'";
-                break;
-                case 2:
-                    sql= "select * from venta where id_cli_2='"+dato+"'";
-                break;
-                case 3: 
-                    sql= "select * from venta where id_empl_2='"+dato+"'";
-                break;
-                case 4: 
-                    sql= "select * from venta where prec_venta='"+dato+"'";
-                break;
-                case 5: 
-                    sql= "select * from venta where fech_venta='"+dato+"'";
-                break;
+                case 1 -> sql="select * from venta where id_manufac='"+dato+"'";
+                case 2 -> sql= "select * from venta where id_cli_2='"+dato+"'";
+                case 3 -> sql= "select * from venta where id_empl_2='"+dato+"'";
+                case 4 -> sql= "select * from venta where prec_venta='"+dato+"'";
+                case 5 -> sql= "select * from venta where fech_venta='"+dato+"'";
             }
             
             try{

@@ -5,9 +5,8 @@
 package Vista;
 
 import java.awt.Image;
-import Modelo.Login;
 import java.awt.Toolkit;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 /**
  *
@@ -21,6 +20,7 @@ public class ConfigContra_JFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;

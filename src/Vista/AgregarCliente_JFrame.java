@@ -7,11 +7,11 @@ package Vista;
 import Modelo.Login;
 import java.awt.Image;
 import java.awt.Toolkit;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class AgregarCliente_JFrame extends javax.swing.JFrame {
 
@@ -36,6 +36,7 @@ public class AgregarCliente_JFrame extends javax.swing.JFrame {
         btn_guardar.addActionListener(cliente_Control);
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;

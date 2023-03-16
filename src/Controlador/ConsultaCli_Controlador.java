@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
 import java.awt.event.ActionListener;
 import Vista.*;
 import Modelo.*;
-import static Modelo.Gestor_Cliente.Consultar_Cliente;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
@@ -30,19 +26,19 @@ public class ConsultaCli_Controlador implements ActionListener {
     public void actionPerformed(ActionEvent e){
         DefaultTableModel tmodelo;
         String filtro=consultarCli.combox_filtro.getSelectedItem().toString();
-        String dato = consultarCli.txt_dato.getText().toString();
+        String dato = consultarCli.txt_dato.getText();
        
         int atributo=0;
         
-        if(filtro=="ID"){
+        if("ID".equals(filtro)){
             atributo=1;
-        }if(filtro=="Nombre"){
+        }if("Nombre".equals(filtro)){
             atributo=2;
-        }if(filtro=="Numero celular"){
+        }if("Numero celular".equals(filtro)){
             atributo=3;
         }
         
-        LinkedList<Cliente>clientes= gestor_cli.Consultar_Cliente(atributo, dato);
+        LinkedList<Cliente>clientes= Gestor_Cliente.Consultar_Cliente(atributo, dato);
         
         String registro[]= new String[4];
         String titulos[]= {"ID", "Nombre", "Número de celular", "Dirección"};

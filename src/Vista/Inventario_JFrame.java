@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
-import Controlador.ConsultaCli_Controlador;
 import Controlador.ConsultaProdu_Control;
 import Modelo.Login;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author NN
+ * Neoly Alexis
  */
 public class Inventario_JFrame extends javax.swing.JFrame {
 
@@ -46,6 +42,7 @@ public class Inventario_JFrame extends javax.swing.JFrame {
         return tabla;
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;
@@ -295,33 +292,33 @@ public class Inventario_JFrame extends javax.swing.JFrame {
 
         String seleccionado= combox_consulta.getSelectedItem().toString();
         switch(seleccionado){
-            case "Consultas - Clientes":
-            Metodos_generales.ConsultasCli();
-            this.dispose();
-            break;
-            case "Consultas - Gerentes":
-            ConsultasGeren_JFrame geren= new ConsultasGeren_JFrame();
-            geren.show();
-            this.dispose();
-            break;
-            case "Consultas - Empleados":
-            Metodos_generales.ConsultasEmpl();
-            this.dispose();
-            break;
-            case "Consultas - Ventas":
-            Metodos_generales.ConsultasVen();
-            this.dispose();
-            break;
-            case "Consultas - Areas":
-            AgregarArea_JFrame area= new AgregarArea_JFrame();
-            area.show();
-            this.dispose();
-            break;
-            case "Consultas - Manufacturas":
-            ConsultasManu_JFrame manu= new ConsultasManu_JFrame();
-            manu.show();
-            this.dispose();
-            break;
+            case "Consultas - Clientes" -> {
+                Metodos_generales.ConsultasCli();
+                this.dispose();
+            }
+            case "Consultas - Gerentes" -> {
+                ConsultasGeren_JFrame geren= new ConsultasGeren_JFrame();
+                geren.show();
+                this.dispose();
+            }
+            case "Consultas - Empleados" -> {
+                Metodos_generales.ConsultasEmpl();
+                this.dispose();
+            }
+            case "Consultas - Ventas" -> {
+                Metodos_generales.ConsultasVen();
+                this.dispose();
+            }
+            case "Consultas - Areas" -> {
+                AgregarArea_JFrame area= new AgregarArea_JFrame();
+                area.show();
+                this.dispose();
+            }
+            case "Consultas - Manufacturas" -> {
+                ConsultasManu_JFrame manu= new ConsultasManu_JFrame();
+                manu.show();
+                this.dispose();
+            }
         }
 
     }//GEN-LAST:event_combox_consultaActionPerformed

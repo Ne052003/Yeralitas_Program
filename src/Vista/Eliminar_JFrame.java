@@ -4,11 +4,10 @@
  */
 package Vista;
 
-import Controlador.ConsultaCli_Controlador;
 import Controlador.Eliminar_Control;
 import java.awt.Image;
 import java.awt.Toolkit;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,6 +32,7 @@ public class Eliminar_JFrame extends javax.swing.JFrame {
         btn_eliminar.addActionListener(eliminar);
     }
     
+    @Override
     public Image getIconImage(){
         Image retvalue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpg"));
         return retvalue;

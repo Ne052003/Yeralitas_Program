@@ -4,8 +4,6 @@
  */
 package Modelo;
 
-import java.util.Date;
-
 public class Gerente {
     
     private String id_geren;

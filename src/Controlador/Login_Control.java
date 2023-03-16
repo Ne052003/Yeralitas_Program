@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
 import Modelo.Login;
@@ -9,11 +6,10 @@ import Vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
 
 /**
  *
- * @author NN
+ * @author Neoly Alexis 
  */
 public class Login_Control implements ActionListener {
     Login_JFrame loginVista;
@@ -31,22 +27,24 @@ public class Login_Control implements ActionListener {
     public void actionPerformed(ActionEvent e){
         String identificacion= loginVista.txt_id.getText();
         String contrasena= loginVista.pass_contrasena.getText();
-        String rol="";
         int verificacion=gestorLogin.Loguear(identificacion, contrasena);
-        if(verificacion==1){
-            menuEmpl= MenuEmpl_JFrame.getMenu();
-            menuEmpl.show();
-            loginVista.dispose();
-        } else if(verificacion==2){
-            menuGer= MenuGer_JFrame.getMenu();
-            menuGer.show();
-            loginVista.dispose();
-        } else if(verificacion==3){
-            menuAdmin= MenuAdmin_JFrame.getMenu();
-            menuAdmin.show();
-            loginVista.dispose();
-        }else{
-            JOptionPane.showMessageDialog(loginVista, "Datos incorrectos");
+        switch (verificacion) {
+            case 1 -> {
+                menuEmpl= MenuEmpl_JFrame.getMenu();
+                menuEmpl.show();
+                loginVista.dispose();
+            }
+            case 2 -> {
+                menuGer= MenuGer_JFrame.getMenu();
+                menuGer.show();
+                loginVista.dispose();
+            }
+            case 3 -> {
+                menuAdmin= MenuAdmin_JFrame.getMenu();
+                menuAdmin.show();
+                loginVista.dispose();
+            }
+            default -> JOptionPane.showMessageDialog(loginVista, "Datos incorrectos");
         }
     }
 }

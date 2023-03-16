@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import java.sql.*;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
-import yeralitas_program.Metodos_generales;
+import Recursos.Metodos_generales;
 
 public class Gestor_Cliente {
     
@@ -36,12 +36,12 @@ public class Gestor_Cliente {
             cli.setString(3,cliente.getDir_cli());
             cli.executeUpdate();
             int msg=JOptionPane.showConfirmDialog(null,"Cliente registrado, ¿Desea agregar otro registro?");
-            if(msg==JOptionPane.YES_OPTION){
-                Metodos_generales.AgregarCli();
-            }else if(msg==JOptionPane.NO_OPTION){
-                Metodos_generales.RolMenu();
-            }else if(msg==JOptionPane.CANCEL_OPTION){
-                Metodos_generales.RolMenu();
+            switch (msg) {
+                case JOptionPane.YES_OPTION -> Metodos_generales.AgregarCli();
+                case JOptionPane.NO_OPTION -> Metodos_generales.RolMenu();
+                case JOptionPane.CANCEL_OPTION -> Metodos_generales.RolMenu();
+                default -> {
+                }
             }
         }catch(SQLException ex){
             Logger.getLogger(Gestor_Cliente.class.getName()).log(Level.SEVERE,null, ex);
@@ -56,20 +56,14 @@ public class Gestor_Cliente {
     
     //Método para consultar cliente por parámetros
     public static LinkedList<Cliente> Consultar_Cliente(int atributo, String valor){
-        LinkedList<Cliente> resultado= new LinkedList<Cliente>();
+        LinkedList<Cliente> resultado= new LinkedList<>();
         String sql="";
         
             switch(atributo){
                 
-                case 1:
-                  sql="select * from cliente where id_cli='"+valor+"'";
-                break;
-                case 2:
-                    sql= "select * from cliente where nom_cli='"+valor+"'";
-                break;
-                case 3: 
-                    sql= "select * from cliente where num_cli='"+valor+"'";
-                break;
+                case 1 -> sql="select * from cliente where id_cli='"+valor+"'";
+                case 2 -> sql= "select * from cliente where nom_cli='"+valor+"'";
+                case 3 -> sql= "select * from cliente where num_cli='"+valor+"'";
             }
             
             try{
@@ -79,7 +73,7 @@ public class Gestor_Cliente {
                     resultado.add(new Cliente(Integer.parseInt(rs.getString("id_cli")), rs.getString("nom_cli"), rs.getString("num_cli"), rs.getString("dir_cli")));
                 }
                 st.close();
-            }catch(Exception e){
+            }catch(NumberFormatException | SQLException e){
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
         

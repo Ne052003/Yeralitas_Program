@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
 import Recursos.Conexion;
@@ -47,28 +44,13 @@ public class Gestor_Producto {
         LinkedList<Producto> resultado= new LinkedList<Producto>();
         String sql="";
             switch(atributo){
+                case 1 -> sql="select * from Producto where id_produ='"+valor+"'";
+                case 2 -> sql="select * from Producto where nom_produ='"+valor+"'";
+                case 3 -> sql="select * from Producto where prec_produ='"+valor+"'";
+                case 4 -> sql="select * from Producto where fech_ingreso_produ='"+valor+"'";
                 
-                //Consulta por ID
-                case 1: 
-                    sql="select * from Producto where id_produ='"+valor+"'";
-                break;
-                
-                //Consulta por nombre
-                case 2: 
-                    sql="select * from Producto where nom_produ='"+valor+"'";
-                break;
-                
-                //Consulta por precio
-                case 3: 
-                    sql="select * from Producto where prec_produ='"+valor+"'";
-                break;
-                
-                //Consulta por fecha de ingreso
-                case 4: 
-                    sql="select * from Producto where fech_ingreso_produ='"+valor+"'";
-                break;
-                
-            } try{
+            }
+try{
                 Statement st= conn.createStatement();
                 ResultSet rs= st.executeQuery(sql);
                 while(rs.next()){
@@ -82,21 +64,4 @@ public class Gestor_Producto {
         
         return resultado;
     }
-    
-    //Método para obtener todos los productos
-    /*public  static LinkedList<Producto> ConsultarTodosPro(){
-        LinkedList <Producto> todoproducto= new LinkedList<Producto>();
-        String sql1="select * from producto";
-        try{
-            Statement st= conn.createStatement();
-            ResultSet rs= st.executeQuery(sql1);
-            while(rs.next()){
-                    todoproducto.add(new Producto(rs.getInt("id_produ"),rs.getString("id_geren_2"), rs.getString("nom_produ"), rs.getFloat("prec_produ"), rs.getString("unidad_medida_2"), rs.getString("fech_ingreso_produ"),rs.getString("fech_caducidad")));
-                }
-            st.close();
-        }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        return todoproducto;
-    }*/
 }

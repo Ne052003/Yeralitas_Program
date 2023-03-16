@@ -9,7 +9,7 @@ public class Gestor_Area {
     
     //Constructor
     public Gestor_Area(){
-        areas = new LinkedList<Area>();
+        areas = new LinkedList<>();
     }
     
     //Método para agregar areas
@@ -19,7 +19,7 @@ public class Gestor_Area {
     
     //Método para consultar areas
     public static LinkedList<Area> Consultar_Area( String valor){
-        LinkedList<Area> resultado= new LinkedList<Area>();
+        LinkedList<Area> resultado= new LinkedList<>();
         for(Area area: areas){
              if(area.getNom_area().equals(valor))
                     resultado.add(area);
